@@ -1,3 +1,4 @@
+package problems;
 public class NextGreaterElement {
   public static void nge(int[] arr) {
     AStack stack = new AStack(arr.length);

@@ -1,3 +1,4 @@
+package problems;
 /* The Boyer-Moore Vote Algorithm solves the majority vote problem in linear
  * time O(n) and O(1) space. The majority vote problem is to determine
  * in any given sequence of choices whether there is a choice with

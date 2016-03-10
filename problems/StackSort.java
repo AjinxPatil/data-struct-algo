@@ -1,3 +1,4 @@
+package problems;
 public class StackSort {
   public static void sort(AStack stack) {
     if (stack.isEmpty()) {

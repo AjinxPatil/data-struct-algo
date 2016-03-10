@@ -1,3 +1,4 @@
+package datastructures;
 public class AQueue {
   Integer[] contents;
   int front;

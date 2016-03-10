@@ -1,76 +1,111 @@
+package datastructures;
+
+/**
+ * <code>APriorityQueue</code> is an abstract data type that behaves like a
+ * queue except that each item in it has an associated "priority". An item with
+ * high priority is always retrieved before an item with low priority. If two
+ * items have same priority, they are retrieved according to their order in
+ * queue (FIFO). Following implementation is constructed using a singly linked
+ * list.
+ * 
+ * @author Ajinkya Patil
+ * @see java.util.PriorityQueue
+ *
+ */
 public class APriorityQueue {
-  public static class Item {
-    int data;
-    int priority;
-    Item next;
-    Item(int d, int p) {
-      data = d;
-      priority = p;
-    }
-  }
-  Item front;
-  Item rear;
+	public static class Item {
+		public int data;
+		public int priority;
+		public Item next;
 
-  public void isEmpty() {
-    return rear == null ? true : false;
-  }
+		public Item(int data, int priority) {
+			this.data = data;
+			this.priority = priority;
+		}
+	}
 
-  public void insert(int data, int priority) {
-    Item item = new Item(data, priority);
-    if (isEmpty()) {
-      rear = item;
-      front = rear;
-    }
-    rear.next = item;
-    rear = rear.next;
-  }
+	private Item front;
+	private Item rear;
 
-  public int getHigh() {
-    Item pass = front;
-    Item mark = pass;
-    while (pass != null) {
-      if (pass.data > mark.data) {
-        mark = pass;
-      }
-      pass = pass.next;
-    }
-    return mark.data;
-  }
+	public boolean isEmpty() {
+		return rear == null ? true : false;
+	}
 
-  public int removeHigh() {
-    Item pass = front;
-    Item passprev = null;
-    Item markprev = null;
-    Item mark = pass;
-    while (pass != null) {
-      if (pass.priority > mark.priority) {
-        mark = pass;
-        markprev = passprev;
-      }
-      passprev = pass;
-      pass = pass.next;
-    }
-    if (markprev == null) {
-      if (rear == front) {
-        front = null;
-        rear = null;
-      } else {
-        front = front.next;
-      }
-      return mark.data;
-    }
-    markprev.next = mark.next;
-    return mark.data;
-  }
+	/**
+	 * Inserts an item in the queue. It can always insert item due to linked list
+	 * implementation.
+	 * 
+	 * @param data
+	 * @param priority
+	 */
+	public void insert(int data, int priority) {
+		Item item = new Item(data, priority);
+		if (isEmpty()) {
+			rear = item;
+			front = rear;
+		}
+		rear.next = item;
+		rear = rear.next;
+	}
 
-  public void print() {
-    if (isEmpty()) {
-      System.out.println("Empty!");
-      return;
-    }
-    Item pass = front;
-    while (pass != null) {
-      System.out.print(pass.data + " [" + pass.priority + "] | ");
-    }
-  }
+	/**
+	 * 
+	 * @return the highest priority element but does not remove it from queue
+	 */
+	public int findMax() {
+		Item pass = front;
+		Item mark = pass;
+		while (pass != null) {
+			if (pass.priority > mark.priority) {
+				mark = pass;
+			}
+			pass = pass.next;
+		}
+		return mark.data;
+	}
+
+	/**
+	 * 
+	 * @return the highest priority element and removes it from queue
+	 */
+	public int removeMax() {
+		Item pass = front;
+		Item passprev = null;
+		Item markprev = null;
+		Item mark = pass;
+		while (pass != null) {
+			if (pass.priority > mark.priority) {
+				mark = pass;
+				markprev = passprev;
+			}
+			passprev = pass;
+			pass = pass.next;
+		}
+		int max = mark.data;
+		// if front element has highest priority
+		if (markprev == null) {
+			// if queue contains single element
+			if (rear == front) {
+				front = null;
+				rear = null;
+			} else {
+				front = front.next;
+			}
+			return max;
+		}
+		markprev.next = mark.next;
+		mark = null;
+		return max;
+	}
+
+	public void print() {
+		if (isEmpty()) {
+			System.out.println("EMPTY");
+			return;
+		}
+		Item pass = front;
+		while (pass != null) {
+			System.out.print(pass.data + " [" + pass.priority + "], ");
+		}
+	}
 }

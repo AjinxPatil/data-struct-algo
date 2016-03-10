@@ -1,3 +1,4 @@
+package problems;
 public class StackReversal {
   public static void reverse(AStack stack) {
     if (stack.isEmpty()) {

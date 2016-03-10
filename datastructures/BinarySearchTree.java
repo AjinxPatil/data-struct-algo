@@ -1,3 +1,4 @@
+package datastructures;
 public class BinarySearchTree {
   public static class Node {
     int data;

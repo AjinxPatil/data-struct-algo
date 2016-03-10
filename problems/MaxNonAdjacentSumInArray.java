@@ -1,3 +1,4 @@
+package problems;
 public class MaxNonAdjacentSumInArray {
   public static int maxByRec(int[] arr, int start) {
     int end = arr.length - 1;

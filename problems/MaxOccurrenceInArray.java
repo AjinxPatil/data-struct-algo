@@ -1,3 +1,6 @@
+package problems;
+import sort.BubbleSort;
+
 public class MaxOccurrenceInArray {
   // O(nlogn)
   public static int findMaxOccurring1(int[] arr) {

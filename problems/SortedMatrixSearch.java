@@ -1,3 +1,4 @@
+package problems;
 public class SortedMatrixSearch {
   public static String exists(int[][] a, int x) {
       int r = a.length;

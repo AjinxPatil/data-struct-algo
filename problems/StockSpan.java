@@ -1,3 +1,4 @@
+package problems;
 public class StockSpan {
   public static int[] getSpans(int[] prices) {
     AStack stack = new AStack(prices.length);

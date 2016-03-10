@@ -1,3 +1,4 @@
+package datastructures;
 public class SinglyLinkedList {
   Node head;
   public static class Node {

@@ -1,3 +1,4 @@
+package problems;
 public class BinNumGenerator {
   public static StringBuffer[] generate(int n) {
     StringBuffer[] bins = new StringBuffer[n];

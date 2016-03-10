@@ -1,3 +1,4 @@
+package datastructures;
 public class AStack {
   Integer top;
   Integer capacity;
