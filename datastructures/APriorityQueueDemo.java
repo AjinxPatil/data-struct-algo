@@ -5,10 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * 
  * @author Ajinkya Patil
  * @see datastructures.APriorityQueue
- *
  */
 public class APriorityQueueDemo {
 	public static void main(String[] args) throws IOException {

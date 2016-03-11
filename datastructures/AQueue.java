@@ -2,11 +2,10 @@ package datastructures;
 
 /**
  * <code>AQueue</code> is an abstract data type that stores elements in FIFO
- * method. Following implementation is constructed using an array.
+ * order. Following implementation is constructed using an array.
  * 
  * @author Ajinkya Patil
  * @see java.util.concurrent.ArrayBlockingQueue
- *
  */
 public class AQueue {
 	Integer[] contents;
@@ -14,14 +13,14 @@ public class AQueue {
 	int rear;
 	int capacity;
 
-	AQueue(int c) {
+	public AQueue(int c) {
 		capacity = c;
 		contents = new Integer[capacity];
 		rear = -1;
 		front = -1;
 	}
 
-	public void enqueue(int data) {
+	public void enqueue(int value) {
 		if (isFull()) {
 			return;
 		}
@@ -29,21 +28,21 @@ public class AQueue {
 			++front;
 		}
 		rear = rear == capacity - 1 ? 0 : rear + 1;
-		contents[rear] = data;
+		contents[rear] = value;
 	}
 
 	public Integer dequeue() {
 		if (isEmpty()) {
 			return null;
 		}
-		int data = contents[front];
+		int value = contents[front];
 		if (front == rear) {
 			front = -1;
 			rear = -1;
-			return data;
+			return value;
 		}
 		front = front == capacity - 1 ? 0 : front + 1;
-		return data;
+		return value;
 	}
 
 	public boolean isEmpty() {

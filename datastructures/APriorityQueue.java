@@ -10,7 +10,6 @@ package datastructures;
  * 
  * @author Ajinkya Patil
  * @see java.util.PriorityQueue
- *
  */
 public class APriorityQueue {
 	public static class Item {
