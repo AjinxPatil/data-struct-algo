@@ -11,13 +11,13 @@ import java.io.InputStreamReader;
  *
  */
 public class APriorityQueueDemo {
-	public static void main_OTHER(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		APriorityQueue queue = new APriorityQueue();
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
 			System.out.println("\nQueue Operations");
-			System.out
-					.println("(1) Insert (2) Find max (3) Remove max (4) Print (5) Exit");
+			System.out.println(
+					"(1) Insert (2) Find max (3) Extract max (4) Print (5) Exit");
 			int option = Integer.parseInt(in.readLine());
 			switch (option) {
 			case 1:
@@ -25,13 +25,13 @@ public class APriorityQueueDemo {
 				int value = Integer.parseInt(in.readLine());
 				System.out.print("Priority? ");
 				int priority = Integer.parseInt(in.readLine());
-				queue.insert(value, priority);
+				queue.add(value, priority);
 				break;
 			case 2:
-				System.out.println("Found: " + queue.findMax());
+				System.out.println("Found: " + queue.peek());
 				break;
 			case 3:
-				System.out.println("Removed: " + queue.removeMax());
+				System.out.println("Removed: " + queue.remove());
 				break;
 			case 4:
 				queue.print();

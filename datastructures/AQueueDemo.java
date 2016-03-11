@@ -4,10 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class QueueDemo {
+public class AQueueDemo {
 	public static void main(String[] args) throws IOException {
-		AQueue queue = new AQueue(Integer.parseInt(args[0]));
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("Capacity of new queue: ");
+		int capacity = Integer.parseInt(in.readLine());
+		AQueue queue = new AQueue(capacity);
 		while (true) {
 			System.out.println("\nQueue Operations");
 			System.out.println("(1) Front (2) Rear (3) Enqueue  (4) Dequeue"
@@ -15,10 +17,10 @@ public class QueueDemo {
 			int option = Integer.parseInt(in.readLine());
 			switch (option) {
 			case 1:
-				System.out.println("Front: " + queue.getFront());
+				System.out.println("Front: " + queue.peekFront());
 				break;
 			case 2:
-				System.out.println("Rear: " + queue.getRear());
+				System.out.println("Rear: " + queue.peekRear());
 				break;
 			case 3:
 				System.out.print("Enqueue? ");

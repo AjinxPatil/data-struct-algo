@@ -38,11 +38,12 @@ public class APriorityQueue {
 	 * @param data
 	 * @param priority
 	 */
-	public void insert(int data, int priority) {
+	public void add(int data, int priority) {
 		Item item = new Item(data, priority);
 		if (isEmpty()) {
 			rear = item;
 			front = rear;
+			return;
 		}
 		rear.next = item;
 		rear = rear.next;
@@ -52,7 +53,7 @@ public class APriorityQueue {
 	 * 
 	 * @return the highest priority element but does not remove it from queue
 	 */
-	public int findMax() {
+	public int peek() {
 		Item pass = front;
 		Item mark = pass;
 		while (pass != null) {
@@ -68,7 +69,7 @@ public class APriorityQueue {
 	 * 
 	 * @return the highest priority element and removes it from queue
 	 */
-	public int removeMax() {
+	public int remove() {
 		Item pass = front;
 		Item passprev = null;
 		Item markprev = null;
@@ -106,6 +107,8 @@ public class APriorityQueue {
 		Item pass = front;
 		while (pass != null) {
 			System.out.print(pass.data + " [" + pass.priority + "], ");
+			pass = pass.next;
 		}
+		System.out.println();
 	}
 }
