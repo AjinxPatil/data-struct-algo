@@ -1,51 +1,66 @@
 package datastructures;
+
+/**
+ * <code>BinaryTree</code> is a tree data structure in which each
+ * <code>Node</code> element has two child nodes as left and right children.
+ * 
+ * @author Ajinkya Patil
+ */
 public class BinaryTree {
-  public static class Node {
-    int data;
-    Node left;
-    Node right;
-    public Node(int value) {
-      this.data = value;
-    }
-  }
-  Node root;
+	public static class Node {
+		public int data;
+		public Node left;
+		public Node right;
 
-  public boolean bfSearch(Node root, int data, int level) {
-    if (root == null) {
-      return false;
-    }
-    if (level == 1) {
-      if (root.data == data) {
-        return true;
-      }
-    } else if (level > 1) {
-      System.out.println(level);
-      return bfSearch(root.left, data, level - 1);
-      return bfSearch(root.right, data, level - 1);
-    }
-    return false;
-  }
+		public Node(int value) {
+			this.data = value;
+		}
+	}
 
-  public int maxDepth(Node root) {
-    if (root == null) {
-      return 0;
-    }
-    int left = maxDepth(root.left);
-    int right = maxDepth(root.right);
-    if (left < right) {
-      return right + 1;
-    }
-    return left + 1;
-  }
+	public Node root;
 
-  public static void main(String[] args) {
-       BinaryTree tree = new BinaryTree();
-       tree.root= new Node(1);
-       tree.root.left= new Node(2);
-       tree.root.right= new Node(3);
-       tree.root.left.left= new Node(4);
-       tree.root.left.right= new Node(5);
+	private static boolean levelSearch(Node root, int data, int level) {
+		if (root == null) {
+			return false;
+		}
+		boolean result = false;
+		if (level == 1) {
+			if (root.data == data) {
+				return true;
+			}
+		} else if (level > 1) {
+			result = levelSearch(root.left, data, level - 1);
+			if (result) {
+				return true;
+			}
+			result = levelSearch(root.right, data, level - 1);
+		}
+		return result;
+	}
 
-       System.out.println((tree.root, 6, 3));
-    }
+	public boolean breadthFirstSearch(int data, int level) {
+		for (int i = 1; i <= level; i++) {
+			boolean result = levelSearch(root, data, i);
+			if (result) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public int depth() {
+		return depth(root);
+	}
+
+	private static int depth(Node root) {
+		if (root == null) {
+			return 0;
+		}
+		int left = depth(root.left);
+		int right = depth(root.right);
+		if (left < right) {
+			return right + 1;
+		}
+		return left + 1;
+	}
 }

@@ -1,17 +1,17 @@
 package datastructures;
 
 /**
- * <code>AQueue</code> is an abstract data type that stores elements in FIFO
- * order. Following implementation is constructed using an array.
+ * <code>AQueue</code> is a data structure that stores elements in FIFO order.
+ * Following implementation is constructed using an array.
  * 
  * @author Ajinkya Patil
  * @see java.util.concurrent.ArrayBlockingQueue
  */
 public class AQueue {
-	Integer[] contents;
-	int front;
-	int rear;
-	int capacity;
+	private Integer[] contents;
+	private int front;
+	private int rear;
+	private int capacity;
 
 	public AQueue(int c) {
 		capacity = c;

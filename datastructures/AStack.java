@@ -1,16 +1,16 @@
 package datastructures;
 
 /**
- * <code>AStack</code> is an abstract data type that stores elements in LIFO
- * order. Following implementation is constructed using an array.
+ * <code>AStack</code> is a data structure that stores elements in LIFO order.
+ * Following implementation is constructed using an array.
  * 
  * @author Ajinkya Patil
  * @see java.util.Stack
  */
 public class AStack {
-	Integer top;
-	Integer capacity;
-	Integer[] contents;
+	private Integer top;
+	private Integer capacity;
+	private Integer[] contents;
 
 	public AStack(int capacity) {
 		top = -1;

@@ -1,19 +1,18 @@
 package datastructures;
 
 /**
- * <code>KStacks</code> is an abstract data type that stores data in collection
- * of stacks. Each stack in <code>KStacks</code> is implemented in a single
- * array.
+ * <code>KStacks</code> is a data structure that stores data in collection of
+ * stacks. Each stack in <code>KStacks</code> is implemented in a single array.
  * 
  * @author Ajinkya Patil
  */
 public class KStacks {
-	int stacks;
-	int capacity;
-	int nextFree;
-	int[] next;
-	int[] tops;
-	Integer[] contents;
+	private int stacks;
+	private int capacity;
+	private int nextFree;
+	private int[] next;
+	private int[] tops;
+	private Integer[] contents;
 
 	public KStacks(int s, int c) {
 		s = c >= s ? s : c;

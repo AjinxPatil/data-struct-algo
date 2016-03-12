@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 /**
  * @author Ajinkya Patil
+ * @see datastructures.AStack
  */
 public class AStackDemo {
 	public static void main(String[] args) throws IOException {

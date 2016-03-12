@@ -1,92 +1,108 @@
 package datastructures;
+
+import datastructures.BinaryTree.Node;
+
+/**
+ * <code>BinarySearchTree</code> is a binary tree data structure where all the
+ * nodes in the left subtree of a node are smaller and all the nodes in the
+ * right subtree are larger than the parent node.
+ * 
+ * @author Ajinkya Patil
+ */
 public class BinarySearchTree {
-  public static class Node {
-    int data;
-    Node left;
-    Node right;
-    Node(int value) {
-      this.data = value;
-    }
-  }
+	public Node root;
 
-  public Node root;
+	public void add(Node node) {
+		if (node == null) {
+			return;
+		}
+		add(node, root);
+	}
 
-  public void insert(Node node) {
-    insertBelowRoot(node, root);
-  }
+	private static Node add(Node node, Node root) {
+		if (root == null || root.data == node.data) {
+			return node;
+		}
+		if (node.data < root.data) {
+			root.left = add(node, root.left);
+		} else {
+			root.right = add(node, root.right);
+		}
+		return root;
+	}
 
-  private static Node insertInSubTree(Node node, Node root) {
-    if (node == null) {
-      return null;
-    }
-    if (root == null) {
-      return node;
-    }
-    if (node.data <= root.data) {
-      root.left = insertInSubTree(node, root.left);
-    } else {
-      root.right = insertInSubTree(node, root.right);
-    }
-    return root;
-  }
+	public boolean isEmpty() {
+		if (root == null) {
+			return true;
+		}
+		return false;
+	}
 
-  public boolean isEmpty() {
-    if (root == null) {
-      return true;
-    }
-    return false;
-  }
+	public boolean search(Node node) {
+		if (node == null) {
+			return false;
+		}
+		return search(node, root);
+	}
 
-  public Node search(Node node) {
-    return searchSubTree(node, root);
-  }
+	private static boolean search(Node node, Node root) {
+		if (root == null) {
+			return false;
+		}
+		if (node.data == root.data) {
+			return true;
+		}
+		if (node.data < root.data) {
+			return search(node, root.left);
+		}
+		return search(node, root.right);
+	}
 
-  private Node searchSubTree(Node node, Node root) {
-    if (node == null || root == null) {
-      return null;
-    }
-    if (node.data == root.data) {
-      return root;
-    }
-    if (node.data < root.data) {
-      return searchSubTree(node, root.left);
-    }
-      return searchSubTree(node, root.right);
-  }
+	/**
+	 * There are three possibilities for node deletion.
+	 * <ol>
+	 * <li>Node to be deleted is leaf</li>
+	 * <li>Node to be deleted has one child</li>
+	 * <li>Node to be deleted has two childs</li>
+	 * </ol>
+	 * 
+	 * @param data
+	 */
+	public void remove(int data) {
+		if (root == null) {
+			return;
+		}
+		remove(data, root);
+	}
 
-  public void delete(Node node) {
-    if (isEmpty()) {
-      return;
-    }
-    deleteFromSubTree(node, root);
-  }
+	private static Node remove(int data, Node root) {
+		if (data < root.data) {
+			root.left = remove(data, root.left);
+		} else if (data > root.data) {
+			root.right = remove(data, root.right);
+		} else {
+			if (root.left == null && root.right == null) {
+				return null;
+			}
+			if (root.left == null) {
+				return root.right;
+			}
+			if (root.right == null) {
+				return root.left;
+			}
+			root.data = findSuccessor(root.right);
+			root.right = remove(root.data, root.right);
+		}
+		return root;
+	}
 
-  private void deleteFromSubTree(Node node, Node root) {
-    if (node == null) {
-      return;
-    }
-    if (node.data < root.data) {
-      root.left = deleteFromSubTree(node, root.left);
-    } else if (node.data > root.data) {
-      root.right = deleteFromSubTree(node, root.right);
-    } else {
-      if (node.left == null) {
-        return root.right;
-      }
-      if (node.right == null) {
-        return root.left;
-      }
-      Node successor = findRootSuccessor(root.right);
-    }
+	private static int findSuccessor(Node root) {
+		int value = root.data;
+		while (root.left != null) {
+			value = root.left.data;
+			root = root.left;
+		}
+		return value;
 
-    private Node findRootSuccessor(Node node) {
-      if (node == null) {
-        return null;
-      }
-      if (node.left != null) {
-        node = findRootSuccessor(node.left);
-      }
-      return node;
-    }
-  }
+	}
 }

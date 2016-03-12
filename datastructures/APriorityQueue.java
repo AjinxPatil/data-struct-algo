@@ -1,12 +1,11 @@
 package datastructures;
 
 /**
- * <code>APriorityQueue</code> is an abstract data type that behaves like a
- * queue except that each item in it has an associated "priority". An item with
- * high priority is always retrieved before an item with low priority. If two
- * items have same priority, they are retrieved according to their order in
- * queue (FIFO). Following implementation is constructed using a singly linked
- * list.
+ * <code>APriorityQueue</code> is a data structure that behaves like a queue
+ * except that each item in it has an associated "priority". An item with high
+ * priority is always retrieved before an item with low priority. If two items
+ * have same priority, they are retrieved according to their order in queue
+ * (FIFO). Following implementation is constructed using a singly linked list.
  * 
  * @author Ajinkya Patil
  * @see java.util.PriorityQueue
