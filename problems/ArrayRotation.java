@@ -63,7 +63,7 @@ public class ArrayRotation {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		int x = Integer.parseInt(in.readLine());
 		if (x > a.length) {
-			System.out.println("OUT OF BOUNDS!");
+			System.out.println("ERROR: Out of bounds!");
 			return;
 		}
 		rotateFaster(a, x);

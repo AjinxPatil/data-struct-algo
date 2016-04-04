@@ -37,7 +37,7 @@ public class BinarySearch {
 		System.out.print("Search: ");
 		int x = Integer.parseInt(in.readLine());
 		Arrays.sort(a);
-		int pos = BinarySearch.search(a, 0, a.length - 1, x);
+		int pos = search(a, 0, a.length - 1, x);
 		if (pos < 0) {
 			System.out.println(x + " not found!");
 		} else {

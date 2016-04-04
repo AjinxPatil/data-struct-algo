@@ -36,7 +36,7 @@ public class AStackDemo {
 			case 5:
 				return;
 			default:
-				System.out.println("INVALID OPTION");
+				System.out.println("ERROR: Invalid option!");
 			}
 		}
 	}

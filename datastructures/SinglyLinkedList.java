@@ -177,4 +177,19 @@ public class SinglyLinkedList {
 		head = node1;
 		return node1;
 	}
+
+	public void enlist(Node x) {
+		if (x == null) {
+			return;
+		}
+		if (head == null) {
+			head = x;
+			return;
+		}
+		Node pass = head;
+		while (pass.next != null) {
+			pass = pass.next;
+		}
+		pass.next = x;
+	}
 }

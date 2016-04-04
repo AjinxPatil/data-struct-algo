@@ -43,7 +43,7 @@ public class KStackDemo {
 			case 4:
 				return;
 			default:
-				System.out.println("Invalid option. Try again!");
+				System.out.println("ERROR: Invalid option!");
 			}
 		}
 	}
