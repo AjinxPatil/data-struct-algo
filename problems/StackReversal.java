@@ -1,4 +1,12 @@
 package problems;
+
+import datastructures.AStack;
+
+/**
+ * Reversing a stack
+ * @author Ajinkya Patil
+ *
+ */
 public class StackReversal {
   public static void reverse(AStack stack) {
     if (stack.isEmpty()) {
@@ -27,7 +35,7 @@ public class StackReversal {
     System.out.println("Before Reversal: ");
     stack.print();
     System.out.println("On Reversal: ");
-    StackReversal.reverse(stack);
+    reverse(stack);
     stack.print();
   }
 }
