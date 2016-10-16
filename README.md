@@ -1,2 +1,2 @@
-# java-data-struct-algo
-Java programs implementing data structures and algorithms
+# data-struct-algo
+Programs implementing data structures and algorithms written in Java and Python
