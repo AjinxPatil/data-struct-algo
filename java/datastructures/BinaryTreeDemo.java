@@ -1,6 +1,6 @@
 package datastructures;
 
-import datastructures.BinaryTree.Node;
+import datastructures.BinaryTree;
 
 /**
  * @author Ajinkya Patil
@@ -20,6 +20,6 @@ public class BinaryTreeDemo {
 		System.out
 				.println("Finding node " + data + " on top " + levels + " levels...");
 		System.out.println("Found: " + tree.breadthFirstSearch(data, levels));
-		System.out.println("Depth: " + tree.depth());
+		System.out.println("Height: " + tree.height());
 	}
 }

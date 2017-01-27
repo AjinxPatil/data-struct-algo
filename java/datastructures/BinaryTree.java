@@ -38,8 +38,8 @@ public class BinaryTree {
 		return result;
 	}
 
-	public boolean breadthFirstSearch(int data, int level) {
-		for (int i = 1; i <= level; i++) {
+	public boolean breadthFirstSearch(int data, int uptoLevel) {
+		for (int i = 1; i <= uptoLevel; i++) {
 			boolean result = levelSearch(root, data, i);
 			if (result) {
 				return true;
@@ -48,16 +48,16 @@ public class BinaryTree {
 		return false;
 	}
 
-	public int depth() {
-		return depth(root);
+	public int height() {
+		return height(root);
 	}
 
-	private static int depth(Node root) {
+	private static int height(Node root) {
 		if (root == null) {
 			return 0;
 		}
-		int left = depth(root.left);
-		int right = depth(root.right);
+		int left = height(root.left);
+		int right = height(root.right);
 		if (left < right) {
 			return right + 1;
 		}
