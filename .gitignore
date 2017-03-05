@@ -1,5 +1,9 @@
 # Java
 *.class
+_*.java
+out/
+.idea/
+*.iml
 
 # Python
 __init__.py

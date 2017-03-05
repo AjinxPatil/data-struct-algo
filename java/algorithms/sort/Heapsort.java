@@ -1,18 +1,18 @@
-package sort;
+package algorithms.sort;
 
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.Scanner;
-import java.util.List;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-public class HeapSort {
+public class Heapsort {
 
   private static int lft(int i) {
     return 2 * i + 1;
   }
-  
+
   private static int rgt(int i) {
     return 2 * i + 2;
   }
@@ -24,7 +24,7 @@ public class HeapSort {
       maxHeap(list, i, len - 1);
     }
   }
-    
+
   /* creates a maxheap for a subtree at index ti with the assumption that the child subtrees 
    * are already heapified
    */
@@ -47,9 +47,9 @@ public class HeapSort {
       if (lft(max) <= last) {
         maxHeap(list, max, last);
       }
-    }     
+    }
   }
-  
+
   public static void sort(List<Integer> list) {
     heapify(list);
     int hi = list.size() - 1;
@@ -59,19 +59,19 @@ public class HeapSort {
       maxHeap(list, 0, hi);
     }
   }
-  
+
   private static void swap(List<Integer> list, int x, int y) {
     int temp = list.get(x);
     list.set(x, list.get(y));
     list.set(y, temp);
   }
-  
+
   public static void main(String[] args) throws IOException {
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     String input = in.readLine();
     Scanner sc = new Scanner(input);
     List<Integer> list = new ArrayList<Integer>();
-    while(sc.hasNext()) {
+    while (sc.hasNext()) {
       list.add(sc.nextInt());
     }
     sort(list);

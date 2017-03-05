@@ -108,6 +108,42 @@ public class SinglyLinkedList {
 		}
 	}
 
+  public void reverseBetween(int m, int n) {
+    if (n == m || head == null || head.next == null) {
+      return;
+    }
+    Node pre = null;
+    Node mNode = null;
+    if (m == 1) {
+      mNode = head;
+    } else {
+      pre = head;
+      for (int i = 1; i < m - 1; i++) {
+        pre = pre.next;
+      }
+      mNode = pre.next;
+    }
+    Node nNode = mNode;
+    for (int i = m; i < n; i++) {
+      nNode = nNode.next;
+    }
+    Node post = nNode.next;
+    Node curr = mNode.next;
+    Node prev = mNode;
+    for (int i = m + 1; i <= n; i++) {
+      Node temp = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = temp;
+    }
+    if (pre == null) {
+      head = nNode;
+    } else {
+      pre.next = nNode;
+    }
+    mNode.next = post;
+  }
+
 	public int length() {
 		int length = 0;
 		Node pass = head;

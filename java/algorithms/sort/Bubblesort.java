@@ -1,9 +1,10 @@
-package sort;
-public class BubbleSort {
+package algorithms.sort;
+
+public class Bubblesort {
   private int length;
   private int[] theArray;
 
-  BubbleSort(int length) {
+  Bubblesort(int length) {
     this.length = length;
     theArray = new int[length];
   }
@@ -45,9 +46,9 @@ public class BubbleSort {
   }
 
   public static void main(String[] args) {
-      BubbleSort sort = new BubbleSort(args.length);
-      int[] arr = sort.fill(args);
-      BubbleSort.sort(arr);
-      sort.print();
+    Bubblesort sort = new Bubblesort(args.length);
+    int[] arr = sort.fill(args);
+    Bubblesort.sort(arr);
+    sort.print();
   }
 }

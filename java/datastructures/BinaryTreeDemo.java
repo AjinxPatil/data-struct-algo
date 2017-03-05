@@ -1,7 +1,6 @@
 package datastructures;
 
-import datastructures.BinaryTree;
-
+import datastructures.BinaryTree.Node;
 /**
  * @author Ajinkya Patil
  */

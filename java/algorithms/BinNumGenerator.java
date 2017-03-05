@@ -1,4 +1,4 @@
-package problems;
+package algorithms;
 
 /**
  * <code>BinNumGenerator</code> generates sequence of binary numbers.
