@@ -13,11 +13,8 @@ public class MaxSubArray {
       } else {
         sum += array[i];
       }
-      if (max < sum) {
-        max = sum;
-      }
     }
-    return max;
+    return Math.max(max, sum);
   }
 
   public static void main(String[] args) {
